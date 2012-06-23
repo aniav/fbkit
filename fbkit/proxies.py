@@ -1,3 +1,18 @@
+try:
+    import json as simplejson
+    simplejson.loads
+except (ImportError, AttributeError):
+    try:
+        import simplejson
+        simplejson.loads
+    except (ImportError, AttributeError):
+        try:
+            from django.utils import simplejson
+            simplejson.loads
+        except (ImportError, AttributeError):
+            import jsonlib as simplejson
+            simplejson.loads
+
 class json(object):
     pass
 
